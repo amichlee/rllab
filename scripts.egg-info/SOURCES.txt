@@ -1,0 +1,14 @@
+README.md
+setup.py
+scripts/__init__.py
+scripts/resume_training.py
+scripts/run_experiment_lite.py
+scripts/setup_ec2_for_rllab.py
+scripts/sim_env.py
+scripts/sim_policy.py
+scripts/submit_gym.py
+scripts/sync_s3.py
+scripts.egg-info/PKG-INFO
+scripts.egg-info/SOURCES.txt
+scripts.egg-info/dependency_links.txt
+scripts.egg-info/top_level.txt

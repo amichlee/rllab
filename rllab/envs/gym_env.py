@@ -118,6 +118,9 @@ class GymEnv(Env, Serializable):
     def render(self):
         self.env.render()
 
+    def init(self):
+        self.env.init()
+
     def terminate(self):
         if self.monitoring:
             self.env._close()

@@ -116,7 +116,7 @@ class CEM(RLAlgorithm, Serializable):
 
         for itr in range(self.n_itr):
             # sample around the current distribution
-            extra_var_mult = max(1.0 - itr / self.extra_decay_time, 0)
+            extra_var_mult = max(5.0 - itr / self.extra_decay_time, 0)
             sample_std = np.sqrt(np.square(cur_std) + np.square(self.extra_std) * extra_var_mult)
             if self.batch_size is None:
                 criterion = 'paths'

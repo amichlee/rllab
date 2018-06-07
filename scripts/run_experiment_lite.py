@@ -18,6 +18,24 @@ import joblib
 
 import logging
 
+import sys
+import os
+# import gc, ppri nt  
+
+_gym_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../OpSpaceLearning/python/"))
+_csaienv_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../OpSpaceLearning/bin/"))
+
+sys.path.append(_gym_dir)
+sys.path.append(_csaienv_dir)
+os.chdir(_gym_dir)
+
+
+import gym
+
+import gym_sai2
+
+
+
 
 def run_experiment(argv):
     default_log_dir = config.LOG_DIR

@@ -23,7 +23,7 @@ class REPS(BatchPolopt, Serializable):
     def __init__(
             self,
             epsilon=0.5,
-            L2_reg_dual=0.,  # 1e-5,
+            L2_reg_dual=1e-5,  # 1e-5,
             L2_reg_loss=0.,
             max_opt_itr=50,
             optimizer=scipy.optimize.fmin_l_bfgs_b,

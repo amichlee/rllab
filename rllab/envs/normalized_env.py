@@ -54,6 +54,8 @@ class NormalizedEnv(ProxyEnv, Serializable):
             return self._apply_normalize_obs(ret)
         else:
             return ret
+    def init(self):
+        self._wrapped_env.init()
 
     def __getstate__(self):
         d = Serializable.__getstate__(self)
@@ -75,6 +77,8 @@ class NormalizedEnv(ProxyEnv, Serializable):
         return self._wrapped_env.action_space
 
     @overrides
+
+
     def step(self, action):
         if isinstance(self._wrapped_env.action_space, Box):
             # rescale the action

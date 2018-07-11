@@ -104,6 +104,13 @@ class BatchPolopt(RLAlgorithm):
             sampler_args = dict()
         self.sampler = sampler_cls(self, **sampler_args)
 
+
+        print("batchsize: ", batch_size)
+        print("max path l: ", max_path_length)
+        print("plot: ", plot)
+        print("env: ", env)
+        print("policy: ", policy)
+
     def start_worker(self):
         self.sampler.start_worker()
         if self.plot:

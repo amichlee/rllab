@@ -65,10 +65,10 @@ def run_task(*_):
         baseline=baseline,
         n_samples = 4,
         # batch_size = 100,
-        max_path_length=50,
+        max_path_length=80,
         n_itr=500,
-        init_std=0,
-        extra_decay_time=50,
+        init_std=0.1,
+        extra_decay_time=100,
         extra_std=0.1,
 
 

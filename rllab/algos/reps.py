@@ -39,7 +39,7 @@ class REPS(BatchPolopt, Serializable):
         :return:
         """
         Serializable.quick_init(self, locals())
-        super(REPS, self).__init__(**kwargs)
+        BatchPolopt.__init__(self, **kwargs)
         self.epsilon = epsilon
         self.L2_reg_dual = L2_reg_dual
         self.L2_reg_loss = L2_reg_loss

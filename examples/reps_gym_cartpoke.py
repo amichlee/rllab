@@ -8,6 +8,7 @@ from rllab.misc.instrument import run_experiment_lite
 from rllab.policies.categorical_mlp_policy import CategoricalMLPPolicy
 from rllab.policies.gaussian_mlp_policy import GaussianMLPPolicy
 
+from rllab.envs.box2d.mountain_car_env import MountainCarEnv
 
 import sys
 import os
@@ -58,27 +59,27 @@ def run_task(*_):
     # Please note that different environments with different action spaces may require different
     # policies. For example with a Box action space, a GaussianMLPPolicy works, but for a Discrete
     # action space may need to use a CategoricalMLPPolicy (see the trpo_gym_cartpole.py example)
-    env = normalize(GymEnv("cy-saienv-peg1-v0",  force_reset=True))
-    # env.init()
+    env = normalize(MountainCarEnv())
 
-
-    policy = GaussianMLPPolicy(
+    policy = CategoricalMLPPolicy(
         env_spec=env.spec,
+        # The neural network policy should have two hidden layers, each with 32 hidden units.
         hidden_sizes=(32, 32)
     )
+
     baseline = LinearFeatureBaseline(env_spec=env.spec)
     algo = REPS(
         env=env,
         policy=policy,
         baseline=baseline,
-     
-        batch_size = 800,
-        max_path_length=80,
-        n_itr=500,
-
-
-
-
+        batch_size=2000,
+        max_path_length=env.horizon,
+        n_itr=120,
+        # discount=0.99,
+        # step_size=0.01,
+        # Uncomment both lines (this and the plot parameter below) to enable plotting
+        # plot=True,
+# 
 
 
     )
